@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	Cursos | Actividades por curso
+{% endblock %}
+{% block meta %}
+	<meta charset="utf-8">
+	<meta name="author" value="captaincode0">
+	<meta name="robots" value="noindex,nofollow">
+{% endblock %}
+{% block css %}
+	<link rel="shortcut icon" href="{{asset('assets/img/tiny-logo.png')}}">
+	<link href='https://fonts.googleapis.com/css?family=Pacifico|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet/less" href="{{asset('assets/web-libs/app/css/index.less')}}" media="all">
+	<link rel="stylesheet" href="{{asset('assets/web-libs/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" media="all">
+	<link rel="stylesheet" href="{{asset('assets/web-libs/bower_components/jquery_ui/jquery-ui.min.css')}}">
+	<script src="{{asset('assets/web-libs/bower_components/less/dist/less.min.js')}}"></script>
+	<script src="{{asset('assets/web-libs/bower_components/jquery2/jquery.min.js')}}"></script>
+	<script src="{{asset('assets/web-libs/bower_components/jquery_ui/jquery-ui.min.js')}}"></script>
+	<script src="{{asset('assets/web-libs/app/js/cpanel-app-activities.js')}}"></script>
+	<style type="text/css">
+		.top-menu {
+			position: absolute;
+			z-index: 0;
+			border-bottom: 3px solid #3d3d3d;
+			top: 0;
+		}
+	</style>
+{% endblock %}
+{% block frontendjs %}
+{% endblock %}
+{% block body %}
+	<nav>
+		<ul class="top-menu">
+			<a href="{{url('index')}}">
+				<li><img src="{{asset('assets/img/tiny-logo.png')}}" class="logo"></li>
+			</a>
+			<a href="{{url('index')}}">
+				<li>Inicio</li>
+			</a>
+			<a href="{{url('courses')}}">
+				<li>Cursos actuales</li>
+			</a>
+			<a href="{{url('logout')}}">
+				<li class="prefered-blue">Cerrar sesión</li>
+			</a>
+		</ul>
+	</nav>
+	<div class="fluid-container">
+		<div class="cpanel">
+			<div class="row">
+				<div class="col-md-3">
+					<ul class="options">
+						{% if usertype %}
+							<a href="{{url('cpanel.students')}}"><li><span class="glyphicon glyphicon-user"></span> Alumnos</li></a>
+						{% endif %}
+						<a href="{{url('cpanel.courses')}}"><li><span class="glyphicon glyphicon-list-alt"></span> Cursos</li></a>
+						{% if usertype %}
+							<a href="{{url('cpanel.activities')}}"><li class="active"><span class="glyphicon glyphicon-indent-left"></span> Actividades por curso</li></a>
+						{% endif %}
+						<a href="{{url('cpanel.profile')}}"><li><span class="glyphicon glyphicon-education"></span> Perfil</li></a>
+					</ul>
+				</div>
+				<div class="col-md-9 single-container">
+					<div class="panel panel-default tblcontent">
+						<div class="panel-heading">Cursos</div>
+						<div class="panel-body table-container courses-table">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Nombre</th>
+										<th>Token</th>
+										<th>Acciones</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for course in courses%}
+										<tr>
+											<td>{{course.id}}</td>
+											<td>{{course.name}}</td>
+											<td>{{course.token}}</td>
+											<td>
+												<span id="action-add">Agregar actividad <span class="glyphicon glyphicon-plus"></span></span>
+												| <span id="action-list">Listar actividades <span class="glyphicon glyphicon-list"></span></span>
+											</td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+							<div class="alerts"></div>
+						</div>
+					</div>
+					<div class="panel panel-default table-activities">
+						<div class="panel-heading course-title">Actividades</div>
+						<div class="panel-body table-container">
+							<table class="table tblcontent">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Nombre</th>
+										<th>Fecha</th>
+										<th class="no-visible">Descripción</th>
+										<th>Acciones</th>
+									</tr>
+								</thead>
+								<tbody class="table-body">
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+					
+					<form class="cpanel-form">
+						<div class="input-group">
+							<span class="input-group-addon" id="baon1"><span class="glyphicon glyphicon-font"></span></span>
+							<input type="text" name="name" class="form control" aria-describedby="baon1" placeholder="Nombre de la actividad">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon" id="baon2"><span class="glyphicon glyphicon-calendar"></span></span>
+							<input type="text" name="adate" id="datepicker" class="form control" aria-describedby="baon2" placeholder="Fecha de la actividad">
+						</div>
+						<div class="input-group">
+							<textarea name="description" placeholder="Descripción de la actividad"></textarea>
+						</div>
+						<div class="buttons">
+							<button type="button" class="btn-action">Agregar</button>
+							<button type="button" class="btn-clear">Limpiar</button>
+						</div>
+						<div class="alerts last"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block backendjs %}
+{% endblock %}

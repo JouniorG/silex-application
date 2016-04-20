@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	Alumnos | Panel de control
+{% endblock %}
+{% block meta %}
+	<meta charset="utf-8">
+	<meta name="author" value="captaincode0">
+	<meta name="robots" value="noindex,nofollow">
+{% endblock %}
+{% block css %}
+	<link rel="shortcut icon" href="{{asset('assets/img/tiny-logo.png')}}">
+	<link href='https://fonts.googleapis.com/css?family=Pacifico|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet/less" href="{{asset('assets/web-libs/app/css/index.less')}}" media="all">
+	<link rel="stylesheet" href="{{asset('assets/web-libs/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" media="all">
+	<script src="{{asset('assets/web-libs/bower_components/less/dist/less.min.js')}}"></script>
+	<script src="{{asset('assets/web-libs/bower_components/jquery2/jquery.min.js')}}"></script>
+	<script src="{{asset('assets/web-libs/app/js/cpanel-app-users.js')}}"></script>
+	<style type="text/css">
+		.top-menu {
+			position: absolute;
+			z-index: 0;
+			border-bottom: 3px solid #3d3d3d;
+			top: 0;
+		}
+	</style>
+{% endblock %}
+{% block frontendjs %}
+{% endblock %}
+{% block body %}
+	<nav>
+		<ul class="top-menu">
+			<a href="{{url('index')}}">
+				<li><img src="{{asset('assets/img/tiny-logo.png')}}" class="logo"></li>
+			</a>
+			<a href="{{url('index')}}">
+				<li>Inicio</li>
+			</a>
+			<a href="{{url('courses')}}">
+				<li>Cursos actuales</li>
+			</a>
+			<a href="{{url('logout')}}">
+				<li class="prefered-blue">Cerrar sesión</li>
+			</a>
+		</ul>
+	</nav>
+	<div class="fluid-container">
+		<div class="cpanel">
+			<div class="row">
+				<div class="col-md-3">
+					<ul class="options">
+						{% if usertype %}
+							<a href="{{url('cpanel.students')}}"><li class="active"><span class="glyphicon glyphicon-user"></span> Alumnos</li></a>
+						{% endif %}
+						<a href="{{url('cpanel.courses')}}"><li><span class="glyphicon glyphicon-list-alt"></span> Cursos</li></a>
+						{% if usertype %}
+							<a href="{{url('cpanel.activities')}}"><li><span class="glyphicon glyphicon-indent-left"></span> Actividades por curso</li></a>
+						{% endif %}
+						<a href="{{url('cpanel.profile')}}"><li><span class="glyphicon glyphicon-education"></span> Perfil</li></a>
+					</ul>
+				</div>
+				<div class="col-md-9 single-container">
+					<div class="panel panel-default">
+						<div class="panel-heading">Estudiantes</div>
+						<div class="panel-body table-container">
+							<table class="table tblcontent">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Email</th>
+										<th>Password [cifrado]</th>
+										<th class="no-visible">Acerca de</th>
+										<th>Acciones</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for student in students%}
+										<tr>
+											<td>{{student.id}}</td>
+											<td>{{student.email}}</td>
+											<td>{{student.password}}</td>
+											<td class="no-visible">{{student.about}}</td>
+											<td>
+												<span id="action-edit">Editar <span class="glyphicon glyphicon-pencil"></span></span>
+												 | <span id="action-del">Eliminar <span class="glyphicon glyphicon-remove"></span></span>
+											</td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<form class="cpanel-form">
+						<div class="input-group">
+							<span class="input-group-addon" id="baon1"><span class="glyphicon glyphicon-font"></span></span>
+							<input type="email" name="email" class="form control" aria-describedby="baon1" placeholder="Correo electrónico">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon" id="baon2"><span class="glyphicon glyphicon-lock"></span></span>
+							<input type="password" name="password" class="form control" aria-describedby="baon2" placeholder="Contraseña">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon" id="baon3"><span class="glyphicon glyphicon-lock"></span></span>
+							<input type="password" name="password-ver" class="form control" aria-describedby="baon3" placeholder="Repetir contraseña">
+						</div>
+						<div class="input-group">
+							<textarea name="desc" placeholder="Descripción para el perfil del alumno"></textarea>
+						</div>
+
+						<div class="buttons">
+							<button type="button" class="btn-action">Agregar</button>
+							<button type="button" class="btn-clear">Limpiar</button>
+						</div>
+						<div class="alerts last"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block backendjs %}
+{% endblock %}

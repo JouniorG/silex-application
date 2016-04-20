@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	Registro de usuario | Wave Learning
+{% endblock %}
+{% block meta %}
+	<meta charset="utf-8">
+	<meta name="author" value="captaincode0">
+	<meta name="robots" value="noindex,nofollow">
+{% endblock %}
+{% block css %}
+	<link rel="shortcut icon" href="{{asset('assets/img/tiny-logo.png')}}">
+	<link href='https://fonts.googleapis.com/css?family=Pacifico|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet/less" href="{{asset('assets/web-libs/app/css/index.less')}}" media="all">
+	<link rel="stylesheet" href="{{asset('assets/web-libs/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" media="all">
+	<script src="{{asset('assets/web-libs/bower_components/less/dist/less.min.js')}}"></script>
+	<script src="{{asset('assets/web-libs/bower_components/jquery2/jquery.min.js')}}"></script>
+	<script src="{{asset('assets/web-libs/app/js/general-app.js')}}"></script>
+	<style type="text/css">
+		body{
+			background-image: url("{{asset('assets/img/repeat-back0.png')}}");
+			background-size: 50%;
+			background-repeat: repeat;
+		}
+	</style>
+{% endblock %}
+{% block frontendjs %}
+{% endblock %}
+{% block body %}
+	<nav>
+		<ul class="top-menu">
+			<a href="{{url('index')}}">
+				<li class="non-active"><img src="{{asset('assets/img/tiny-logo.png')}}" class="logo"></li>
+			</a>
+			<a href="{{url('index')}}">
+				<li>Inicio</li>
+			</a>
+			<a href="{{url('courses')}}">
+				<li>Cursos actuales</li>
+			</a>
+			<a href="{{url('signup')}}">
+				<li class="prefered-blue">Registro</li>
+			</a>
+			<a href="{{url('login')}}">
+				<li class="prefered-green">Inicio de sesión</li>
+			</a>
+		</ul>
+	</nav>
+		
+	<div class="login">
+		<img src="{{asset('assets/img/icons/newuser.png')}}" class="icon">
+		<form id="frmsignup">
+			<div class="input-group">
+				<span class="input-group-addon" id="baon1">@</span>
+				<input type="text" name="email" class="form control" aria-describedby="baon1" placeholder="email">
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon" id="baon1"><span class="glyphicon glyphicon-lock"></span></span>
+				<input type="password" name="password" class="form control" aria-describedby="baon1" placeholder="contraseña">
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon" id="baon2"><span class="glyphicon glyphicon-lock"></span></span>
+				<input type="password" name="password-ver" class="form control" aria-describedby="baon2" placeholder="repite contraseña">
+			</div>
+			<button>Registrarse</button>
+			<div class="alerts"></div>	
+		</form>
+	</div>
+{% endblock %}
+{% block backendjs %}
+{% endblock %}

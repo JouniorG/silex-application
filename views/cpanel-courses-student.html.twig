@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	Mis cursos | Panel de control
+{% endblock %}
+{% block meta %}
+	<meta charset="utf-8">
+	<meta name="author" value="captaincode0">
+	<meta name="robots" value="noindex,nofollow">
+{% endblock %}
+{% block css %}
+	<link rel="shortcut icon" href="{{asset('assets/img/tiny-logo.png')}}">
+	<link href='https://fonts.googleapis.com/css?family=Pacifico|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet/less" href="{{asset('assets/web-libs/app/css/index.less')}}" media="all">
+	<link rel="stylesheet" href="{{asset('assets/web-libs/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" media="all">
+	<script src="{{asset('assets/web-libs/bower_components/less/dist/less.min.js')}}"></script>
+	<style type="text/css">
+		.top-menu {
+			position: absolute;
+			z-index: 0;
+			border-bottom: 3px solid #3d3d3d;
+			top: 0;
+		}
+	</style>
+{% endblock %}
+{% block frontendjs %}
+{% endblock %}
+{% block body %}
+	<nav>
+		<ul class="top-menu">
+			<a href="{{url('index')}}">
+				<li><img src="{{asset('assets/img/tiny-logo.png')}}" class="logo"></li>
+			</a>
+			<a href="{{url('index')}}">
+				<li>Inicio</li>
+			</a>
+			<a href="{{url('courses')}}">
+				<li>Cursos actuales</li>
+			</a>
+			<a href="{{url('logout')}}">
+				<li class="prefered-blue">Cerrar sesión</li>
+			</a>
+		</ul>
+	</nav>
+
+	<div class="fluid-container">
+		<div class="cpanel">
+			<div class="row">
+				<div class="col-md-2">
+					<ul class="options">
+						{% if usertype %}
+							<a href="{{url('cpanel.students')}}"><li><span class="glyphicon glyphicon-user"></span> Alumnos</li></a>
+						{% endif %}
+							<a href="{{url('cpanel.courses')}}"><li class="active"><span class="glyphicon glyphicon-list-alt"></span> Cursos</li></a>
+						{% if usertype %}
+							<a href="{{url('cpanel.activities')}}"><li><span class="glyphicon glyphicon-indent-left"></span> Actividades por curso</li></a>
+						{% endif %}
+							<a href="{{url('cpanel.profile')}}"><li><span class="glyphicon glyphicon-education"></span> Perfil</li></a>
+					</ul>
+				</div>
+				<div class="col-md-2 course-container">
+					<h2>Todos los cursos </h2>
+					<div class="course">
+						<h3>Título del curso</h3>
+						<div class="well">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum temporibus blanditiis eligendi laboriosam, nemo perspiciatis adipisci, soluta officia quam qui culpa perferendis quod quae inventore eveniet voluptatibus, labore in. Facilis.
+						</div>
+						<div class="buttons">
+							<button class="btn-blue" course-token="">Información </button>
+							<button class="btn-orange" course-token="">Enrrolarse </button>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2 activity-container">
+					<div class="activity">
+						<p class="title">Activity<span class="glyphicon glyphicon-menu-right"></span><br><small>2016-11-11</small></p>
+					</div>
+				</div>
+				<div class="col-md-6">
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block backendjs %}
+{% endblock %}

@@ -1,0 +1,5 @@
+#3d3d3d 20.0 % Baltic Sea (Grey)
+#e64602 20.0 % Persimmon (Orange)
+#80aa2d 20.0 % Limerick (Green)
+#1397d0 20.0 % Pacific Blue (Blue)
+#4b6482 20.0 % Wedgewood (Blue)

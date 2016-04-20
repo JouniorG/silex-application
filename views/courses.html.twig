@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	Wave Learning | Cursos actuales
+{% endblock %}
+{% block meta %}
+	<meta charset="utf-8">
+	<meta name="author" value="captaincode0">
+	<meta name="robots" value="noindex,nofollow">
+{% endblock %}
+{% block css %}
+	<link rel="shortcut icon" href="{{asset('assets/img/tiny-logo.png')}}">
+	<link href='https://fonts.googleapis.com/css?family=Pacifico|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet/less" href="{{asset('assets/web-libs/app/css/index.less')}}" media="all">
+	<link rel="stylesheet" href="{{asset('assets/web-libs/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" media="all">
+	<script src="{{asset('assets/web-libs/bower_components/less/dist/less.min.js')}}"></script>
+	<style type="text/css">
+		.top-menu {
+			position: absolute;
+			z-index: 0;
+			top:0;
+		}
+	</style>
+{% endblock %}
+{% block frontendjs %}
+{% endblock %}
+{% block body %}
+	<nav>
+		<ul class="top-menu">
+			<a href="{{url('index')}}">
+				<li class="non-active"><img src="{{asset('assets/img/tiny-logo.png')}}" class="logo"></li>
+			</a>
+			
+			<a href="{{url('index')}}">
+				<li>Inicio</li>
+			</a>
+
+			<a href="{{url('courses')}}">
+				<li class="active">Cursos actuales</li>
+			</a>
+			
+			{% if not isauth %}
+			<a href="{{url('signup')}}">
+				<li class="prefered-blue">Registro</li>
+			</a>
+			<a href="{{url('login')}}">
+				<li class="prefered-green">Inicio de sesión</li>
+			</a>
+			{% endif %}
+
+			{% if isauth %}
+				<a href="{{url('cpanel')}}">
+					<li class="prefered-blue">CPanel</li>
+				</a>
+			{% endif %}
+		</ul>
+	</nav>
+	
+	<div class="container courses">
+		<h1>Cursos actuales</h1>
+		{% for course in courses %}
+			<div class="course">
+				<h2>{{course.name}}</h2>
+			</div>
+		{% endfor %}
+	</div>
+
+	<footer>
+		<div class="lcontainer">
+			<img src="{{asset('assets/img/tiny-logo.png')}}" alt="Wave learning logo" class="logo">
+			<h3>Wave Learning</h3>
+		</div>
+		<h4>Programado y diseñado por Diego De Santiago (git:captaincode0)</h4>
+	</footer>
+{% endblock %}
+{% block backendjs %}
+{% endblock %}

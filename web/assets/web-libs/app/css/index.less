@@ -1,0 +1,567 @@
+@sea_grey: #3d3d3d;
+@orange: #e64602;
+@green: #80aa2d;
+@blue: #1397d0;
+@wblue: #4b6482;
+
+.font-pacific {
+	font-family: 'Pacifico', cursive;
+}
+
+.font-yanone {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: white;
+	overflow-x: hidden;
+}
+
+.panel {
+	margin-right: 20px;
+}
+
+.panel .panel-heading {
+	font-size: 19px;
+	text-align: center;
+}
+
+.nav {
+	padding: 0;
+	margin: 0;
+}
+
+.top-menu {
+	overflow: hidden;
+	padding: 10px 20px 10px 20px;
+	list-style: none;
+	.font-pacific;
+	position: fixed;
+	width: 100%;
+	background: white;
+	z-index: 999999;
+}
+
+.top-menu a > li{
+	font-size: 20px;
+	text-decoration: none;
+	color: @orange;
+	margin-left: 15px;
+	padding: 10px;
+	float: left;
+	border-bottom: 5px solid white;
+}
+
+.top-menu .logo {
+	width: 50px;
+	height: 50px;
+	margin: -15px 0 -15px 0;
+	padding: 0;
+}
+
+.top-menu  a > .logo {
+	border-bottom:  none;
+}
+
+.top-menu  a > .non-active, .top-menu  a > .non-active:hover{
+	border-bottom:  none;
+}
+
+.top-menu a > .active {
+	border-bottom: 5px solid @blue;
+}
+
+.top-menu a > li:hover {
+	border-bottom: 5px solid @blue;
+}
+
+.top-menu a > .prefered-green, .top-menu a > .prefered-blue {
+	color: #efefef;
+	border-radius: 5px;
+	border: 1px solid white;
+}
+
+.top-menu a > .prefered-blue {
+	background-color: @blue;
+}
+
+.top-menu a > .prefered-green {
+	background-color: @green;
+}
+
+.top-menu a > .prefered-blue:hover, .top-menu a > .prefered-green:hover {
+	border: 1px solid @sea_grey;
+}
+
+.banner {
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: cover;	
+}
+
+.banner-settings {
+	padding: 20px;
+}
+
+.gbanner {
+	background-image: url("../../../img/banner.jpg");
+}
+
+.screen  {
+	margin: 0;
+	.banner;
+	.gbanner;
+	.banner-settings;
+}
+
+.screen > .full-img {
+	width: 100%;
+}
+
+.screen .content {
+	margin: 113.5667px 40px 40px 40px;
+}
+
+.screen .content .logo {
+	display: block;
+	margin: 10px auto;
+	width: 250px;
+	height: 250px;
+	background-color: white;
+	padding: 0;
+	border-radius: 50%;
+}
+
+.screen .content h2 {
+	color: @orange;
+	text-align: center;
+	.font-pacific;
+	margin-bottom: 10px;
+}
+
+.screen .content .registry {
+	background-color: @green;
+	padding: 0.65em 0.95em;
+	font-size: 23px;
+	color: white;
+	.font-yanone;
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	margin: 10px 0 0 -96.35px;
+	left: 50%;
+	border-radius: 5px;
+	z-index: 0;
+}
+
+.mchars {
+	margin: 0;
+	padding: 20px 20px 0 20px;
+	background-color: @sea_grey;
+}
+
+.mchars .thumbnail {
+	background-color: transparent;
+	border: none;
+	.font-yanone;
+}
+
+.mchars .thumbnail h3 {
+	color: white;
+	padding: 10px;
+	margin: 0;
+	text-align: center;
+}
+
+.mchars .thumbnail .desc {
+	font-size: 15px;
+	color: white;
+	text-align: center;
+	width: 70%;
+	margin: 0 auto;
+}
+
+.mchars .thumbnail .desc ol {
+	text-align: left;
+}
+
+.mchars .thumbnail img {
+	margin: 10px auto;
+	border-radius: 50%;
+}
+
+footer {
+	background-color:  #e64602;
+	margin: 0;
+	padding: 20px;
+}
+
+footer h4 {
+	.font-yanone;
+	color: white;
+	text-align: center;
+}
+
+footer .lcontainer {
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	background-color: @orange;
+	color: white;
+	.font-yanone;
+}
+
+footer .lcontainer .logo {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	width: 96px;
+	height: 96px;
+}
+
+footer .lcontainer h3 {
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	.font-pacific;
+}
+
+/* Login page */
+
+.login {
+	background-color: @wblue;
+	position: absolute;
+	width: 300px;
+	top: 200px;
+	left: 50%;
+	padding: 20px;
+	margin-left: -150px;
+	border: none;
+	border-radius: 10px;
+	.font-yanone;
+	opacity: 0.92;
+}
+
+.login * {
+	opacity:1;
+}
+
+.login .icon {
+	width: 128px;
+	height: 128px;
+	display: block;
+	margin: 10px auto 10px auto;
+	position: relative;
+}
+
+.login form {
+	font-size: 17px;
+	margin-top: 10px;
+}
+
+.login form input {
+	width: 100%;
+	border: none;
+	border-radius: 0 5px 5px 0;
+	padding: 10px;
+}
+
+.login form .input-group, .login form button {
+	margin-top: 10px;
+}
+
+.login form .input-group-addon {
+	font-size: 19px;
+	line-height: 0.5em;
+	color: @blue;
+}
+
+.login form button {
+	background-color: @blue;
+	color: white;
+	font-size: 18px;
+	display: block;
+	margin: 10px auto 0 auto;
+	border: none;
+	padding: .61em 0.8em;
+	border-radius: 5px;
+}
+
+.login .forgot-password {
+	color: @green;
+	font-size: 18px;
+	text-align: right;
+	margin-top: 20px;
+}
+
+.login .forgot-password:hover {
+	cursor: pointer;
+}
+
+.alerts {
+	margin: 10px 0 0 0;
+	padding: 0;
+}
+
+.alerts .alert {
+	margin: 0;
+}
+
+.cpanel {
+	margin: 0;
+	padding: 0;
+	margin-top: 90px;
+}
+
+.cpanel .options {
+	list-style: none;
+	margin-left: -40px;
+}
+
+.cpanel .options li{
+	.font-yanone;
+	font-size: 20px;
+	color: black;
+	padding: 0.8em;
+	margin: 0;
+}
+
+.cpanel .options a {
+	text-decoration:none;
+}
+
+.cpanel .options a > .active, .cpanel .options a > .active:hover {
+	background-color: @blue;
+	color: white;
+}
+
+.cpanel .options li:hover{
+	background-color: #afafaf;
+	cursor: pointer;
+	color: white;
+}
+
+.panel .options li .glyphicon {
+	font-size: 17px;
+	padding-right: 15px;
+}
+
+.courses {
+	padding: 20px;
+	margin-top: 100px;
+	.font-pacific;
+}
+
+.courses h1 {
+	color: @orange;
+	text-align: center;
+	line-height: normal;
+}
+
+.courses .course {
+	padding: 10px 20px 20px 20px;
+	margin-bottom: 10px;
+	background: @wblue;
+	color: white;
+	.font-yanone;
+	border-radius: 5px;
+}
+
+.single-container {
+	padding: 20px;
+	.font-yanone;
+}
+
+.tblcontent {}
+
+.tblcontent thead {
+	font-size: 15px;
+}
+
+.tblcontent tbody {
+	font-size: 13px;
+}
+
+.tblcontent tbody tr:hover {
+	background-color: @blue;
+	color: white;
+	cursor: normal;
+}
+
+.tblcontent tbody .row-active {
+	background-color: @blue;
+	color: white;
+}
+
+.tblcontent .no-visible {
+	display: none;
+}
+
+.tblcontent tbody tr td .option-active {
+	color: @orange;
+}
+
+.table-container {
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+.tblcontent tbody #action-del:hover, .tblcontent tbody #action-edit:hover, .tblcontent tbody #action-list:hover, .tblcontent tbody #action-add:hover  {
+	cursor: pointer;
+	color: @orange;
+}
+
+.cpanel-form {
+	width: 350px;
+	margin: 20px auto 0 auto;
+	padding: 20px;
+	background: #afafaf;
+}
+
+.cpanel-form .input-group{
+ 	margin-bottom: 10px;
+}
+
+
+.cpanel-form input, .cpanel-form textarea, .cpanel-form select{
+	width: 100%;
+	font-size: 17px;
+	.font-yanone;
+	padding: 5px;
+}
+
+.cpanel-form input {
+	border-radius: 0 5px 5px 0;
+}
+
+.cpanel-form textarea {
+	width: 310px;
+	height: 180px;
+}
+
+.cpanel-form .last {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.cpanel-form .input-group-addon {
+	border-radius: 5px 0 0 5px;
+}
+
+.cpanel-form .buttons {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.cpanel-form button {
+	margin-right: 10px;
+	background-color: @blue;
+	border-radius: 5px;
+	color: white;
+	border: none;
+	font-size: 18px;
+	padding: 0.5em 0.8em;
+	.font-yanone;
+}
+
+.cpanel-form .btn-clear {
+	background: white;
+	color: @blue;
+}
+
+.cpanel-form button:hover {
+	box-shadow: 0 0 3px @sea_grey;
+}
+
+.cpanel-form .profile {
+	border-radius: 50%;
+	display: block;
+	margin: 0 auto 10px auto;
+}
+
+.table-activities {
+	margin-top: 20px;
+	display: none;
+}
+
+.courses-table .alerts{
+	margin: 20px;
+}
+
+.course-container{
+}
+
+.course-container h2 {
+	margin: 0;
+	.font-pacific;
+	line-height: .5em;
+	padding-top: 10px;
+}
+
+.course-container .course {
+	margin: 0;
+	padding: 13px;
+	.font-yanone;
+	border-bottom: 2px solid #aaa;
+}
+
+.course-container .course h3 {
+	color: black;
+	line-height: normal;
+}
+
+.course-container .course .well {
+	padding: 10px;
+	margin: 0;
+	border: none;
+}
+
+.course-container .course .buttons {
+	margin-top: 10px;
+}
+
+.course-container .course .btn-blue{
+	background-color: @blue;
+}
+
+.course-container .course .btn-orange{
+	background-color: @orange;
+}
+
+.course-container .course .btn-blue, .course-container .course .btn-orange {
+	margin-right: 10px;
+	font-size: 16px;
+	padding: 0.6em 0.7em;
+	border: none;
+	color: white;
+}
+
+
+.activity-container .activity {
+	padding: 10px;
+	.font-yanone;
+	color: black;
+}
+
+.activity-container .activity .title {
+	font-size: 18px;
+	line-height: 0.5em;
+	margin-top: 10px;
+}
+
+.activity-container .activity:hover {
+	background-color: @orange;
+	cursor: pointer;
+}
+
+.activity-container .activity .title .glyphicon {
+	padding-top: 4px;
+	float: right;
+}
+
+.activity-container .activity small {
+	font-size: 12px;
+	color: #8f8f8f;
+}

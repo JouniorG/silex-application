@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	Wave Learning | A new way to learn
+{% endblock %}
+{% block meta %}
+	<meta charset="utf-8">
+	<meta name="author" value="captaincode0">
+	<meta name="robots" value="noindex,nofollow">
+{% endblock %}
+{% block css %}
+	<link rel="shortcut icon" href="{{asset('assets/img/tiny-logo.png')}}">
+	<link href='https://fonts.googleapis.com/css?family=Pacifico|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet/less" href="{{asset('assets/web-libs/app/css/index.less')}}" media="all">
+	<link rel="stylesheet" href="{{asset('assets/web-libs/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" media="all">
+	<script src="{{asset('assets/web-libs/bower_components/less/dist/less.min.js')}}"></script>
+	<style type="text/css">
+		.top-menu {
+			position: absolute;
+			z-index: 0;
+		}
+	</style>
+{% endblock %}
+{% block frontendjs %}
+{% endblock %}
+{% block body %}
+	<nav>
+		<ul class="top-menu">
+			<a href="{{url('index')}}">
+				<li class="non-active"><img src="{{asset('assets/img/tiny-logo.png')}}" class="logo"></li>
+			</a>
+			<a href="{{url('index')}}">
+				<li class="active">Inicio</li>
+			</a>
+			<a href="{{url('courses')}}">
+				<li>Cursos actuales</li>
+			</a>
+			
+			{% if not isauth %}
+			<a href="{{url('signup')}}">
+				<li class="prefered-blue">Registro</li>
+			</a>
+			<a href="{{url('login')}}">
+				<li class="prefered-green">Inicio de sesión</li>
+			</a>
+			{% endif %}
+
+			{% if isauth %}
+				<a href="{{url('cpanel')}}">
+					<li class="prefered-blue">CPanel</li>
+				</a>
+			{% endif %}
+		</ul>
+	</nav>
+	<div class="screen">
+		<div class="content">
+			<img src="{{asset('assets/img/tiny-logo.png')}}" alt="Wave learning logo" class="logo">
+			<a href="{{url('login')}}"><div class="registry">Probar Wave Learning</div></a>
+		</div>
+	</div>
+	<section>
+		<div class="fluid-container mchars">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="thumbnail">
+							<h3>Cursos</h3>
+							<img src="{{asset('assets/img/icons/student.png')}}">
+							<div class="desc">
+								<p>Puedes inscribirte a un curso, en donde el profesor del mismo te asignará actividades, temas de estudio y recursos para cualquier tipo de curso, contamos con las siguientes carreras:</p>
+								<ol>
+									<li>Ingeniería Nuclear</li>
+									<li>Física Teórica</li>
+									<li>Físico Matemático</li>
+									<li>Ingeniería Mecatrónica</li>
+									<li>Ingeniería en Computación</li>
+									<li>Y más...</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="thumbnail">
+							<h3>Retroalimentación</h3>
+							<img src="{{asset('assets/img/icons/feedback.png')}}">
+							<div class="desc">
+								<p>En cada curso los profesores retroalimentarán a cada estudiante, mediante mensajes por cada actividad, para que los estudiantes puedan corregir sus trabajos académicos.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="thumbnail">
+							<h3>Tareas/Actividades</h3>
+							<img src="{{asset('assets/img/icons/homework.png')}}">
+							<div class="desc">
+								<p>El alumnó tendrá tareas asignadas para cada curso, las cuales tendrá que subir en tiempo y forma, ya que el profesor no tendrá el control sobre el cierre de una actividad.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="lcontainer">
+			<img src="{{asset('assets/img/tiny-logo.png')}}" alt="Wave learning logo" class="logo">
+			<h3>Wave Learning</h3>
+		</div>
+		<h4>Programado y diseñado por Diego De Santiago (git:captaincode0)</h4>
+	</footer>
+{% endblock %}
+{% block backendjs %}
+{% endblock %}
